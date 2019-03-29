@@ -17,22 +17,37 @@ final class AppStartManager {
     }
     
     func start() {
-        let rootVC = SearchModuleBuilder.build()
-        rootVC.navigationItem.title = "Search via iTunes"
         
-        let navVC = self.configuredNavigationController
-        navVC.viewControllers = [rootVC]
+        let tabBarController = UITabBarController(nibName: nil, bundle: nil)
         
-        window?.rootViewController = navVC
+        let searchVC = SearchModuleBuilder.build()
+        searchVC.navigationItem.title = "Search via iTunes"
+        
+        let navSearchVC = self.configuredNavigationController()
+        navSearchVC.viewControllers = [searchVC]
+        
+        navSearchVC.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 0)
+        
+        let songsSearchVC = SongsSearchBuilder.build()
+        songsSearchVC.navigationItem.title = "Songs via iTunes"
+        
+        let navSongsSearchVC = self.configuredNavigationController()
+        navSongsSearchVC.viewControllers = [songsSearchVC]
+        
+        navSongsSearchVC.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 1)
+        
+        tabBarController.viewControllers = [navSearchVC, navSongsSearchVC]
+        
+        window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
     }
     
-    private lazy var configuredNavigationController: UINavigationController = {
+    private func configuredNavigationController() -> UINavigationController {
         let navVC = UINavigationController()
         navVC.navigationBar.barTintColor = UIColor.varna
         navVC.navigationBar.isTranslucent = false
         navVC.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navVC.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         return navVC
-    }()
+    }
 }
