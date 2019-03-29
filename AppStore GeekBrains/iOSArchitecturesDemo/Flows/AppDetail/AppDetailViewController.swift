@@ -20,6 +20,7 @@ final class AppDetailViewController: UIViewController {
     
     lazy var headerViewController = AppDetailHeaderViewController(app: self.app)
     lazy var versionViewController = AppDetailVersionViewController(app: self.app)
+    lazy var screenshotsViewController = AppDetailScreenshotsViewController(app: self.app)
     
     init(app: ITunesApp) {
         self.app = app
@@ -45,6 +46,8 @@ final class AppDetailViewController: UIViewController {
         self.addHeaderViewController()
         self.addSeparatorLine(after: headerViewController)
         self.addVersionViewController()
+        self.addSeparatorLine(after: versionViewController)
+        self.addScreenshotsViewController()
     }
     
     private func addScrollView() {
@@ -82,7 +85,21 @@ final class AppDetailViewController: UIViewController {
             self.versionViewController.view.topAnchor.constraint(equalTo: self.headerViewController.view.bottomAnchor),
             self.versionViewController.view.leftAnchor.constraint(equalTo: self.view.leftAnchor),
             self.versionViewController.view.rightAnchor.constraint(equalTo: self.view.rightAnchor),
-            self.versionViewController.view.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor)
+//            self.versionViewController.view.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor)
+            ])
+    }
+    
+    private func addScreenshotsViewController() {
+        
+        self.addChild(self.screenshotsViewController, andPlaceAt: self.scrollView)
+        
+        self.screenshotsViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            self.screenshotsViewController.view.topAnchor.constraint(equalTo: self.versionViewController.view.bottomAnchor),
+            self.screenshotsViewController.view.leftAnchor.constraint(equalTo: self.view.leftAnchor),
+            self.screenshotsViewController.view.rightAnchor.constraint(equalTo: self.view.rightAnchor),
+            self.screenshotsViewController.view.heightAnchor.constraint(equalToConstant: 200),
+            self.screenshotsViewController.view.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor)
             ])
     }
     
