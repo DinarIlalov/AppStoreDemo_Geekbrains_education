@@ -10,9 +10,17 @@ import UIKit
 
 final class AppDetailViewController: UIViewController {
     
+    let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollView
+    }()
+    
     let app: ITunesApp
     
     lazy var headerViewController = AppDetailHeaderViewController(app: self.app)
+    lazy var versionViewController = AppDetailVersionViewController(app: self.app)
+    lazy var screenshotsViewController = AppDetailScreenshotsViewController(app: self.app)
     
     init(app: ITunesApp) {
         self.app = app
@@ -32,38 +40,81 @@ final class AppDetailViewController: UIViewController {
         self.view.backgroundColor = .white
         self.navigationController?.navigationBar.tintColor = UIColor.white;
         self.navigationItem.largeTitleDisplayMode = .never
+        
+        addScrollView()
+        
         self.addHeaderViewController()
-        self.addDescriptionViewController()
+        self.addSeparatorLine(after: headerViewController)
+        self.addVersionViewController()
+        self.addSeparatorLine(after: versionViewController)
+        self.addScreenshotsViewController()
+    }
+    
+    private func addScrollView() {
+        self.view.addSubview(scrollView)
+        
+        // TODO:
+        // Вопрос
+        // во Вью дебаггере ругается на то, что scroll view content size is ambigious
+        
+        NSLayoutConstraint.activate([
+            self.scrollView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            self.scrollView.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor),
+            self.scrollView.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor),
+            self.scrollView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
+            ])
     }
     
     private func addHeaderViewController() {
-        self.addChild(self.headerViewController)
-        self.view.addSubview(self.headerViewController.view)
-        self.headerViewController.didMove(toParent: self)
+        self.addChild(self.headerViewController, andPlaceAt: self.scrollView)
         
         self.headerViewController.view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            self.headerViewController.view.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            self.headerViewController.view.topAnchor.constraint(equalTo: self.scrollView.topAnchor),
             self.headerViewController.view.leftAnchor.constraint(equalTo: self.view.leftAnchor),
             self.headerViewController.view.rightAnchor.constraint(equalTo: self.view.rightAnchor)
             ])
     }
     
-    private func addDescriptionViewController() {
-        // TODO: ДЗ, сделать другие сабмодули
-        let descriptionViewController = UIViewController()
-        descriptionViewController.view.backgroundColor = .red
+    private func addVersionViewController() {
         
-        self.addChild(descriptionViewController)
-        self.view.addSubview(descriptionViewController.view)
-        descriptionViewController.didMove(toParent: self)
+        self.addChild(self.versionViewController, andPlaceAt: self.scrollView)
         
-        descriptionViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        self.versionViewController.view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            descriptionViewController.view.topAnchor.constraint(equalTo: self.headerViewController.view.bottomAnchor),
-            descriptionViewController.view.leftAnchor.constraint(equalTo: self.view.leftAnchor),
-            descriptionViewController.view.rightAnchor.constraint(equalTo: self.view.rightAnchor),
-            descriptionViewController.view.heightAnchor.constraint(equalToConstant: 250.0)
+            self.versionViewController.view.topAnchor.constraint(equalTo: self.headerViewController.view.bottomAnchor),
+            self.versionViewController.view.leftAnchor.constraint(equalTo: self.view.leftAnchor),
+            self.versionViewController.view.rightAnchor.constraint(equalTo: self.view.rightAnchor),
+//            self.versionViewController.view.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor)
+            ])
+    }
+    
+    private func addScreenshotsViewController() {
+        
+        self.addChild(self.screenshotsViewController, andPlaceAt: self.scrollView)
+        
+        self.screenshotsViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            self.screenshotsViewController.view.topAnchor.constraint(equalTo: self.versionViewController.view.bottomAnchor),
+            self.screenshotsViewController.view.leftAnchor.constraint(equalTo: self.view.leftAnchor),
+            self.screenshotsViewController.view.rightAnchor.constraint(equalTo: self.view.rightAnchor),
+            self.screenshotsViewController.view.heightAnchor.constraint(equalToConstant: 200),
+            self.screenshotsViewController.view.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor)
+            ])
+    }
+    
+    private func addSeparatorLine(after viewController: UIViewController) {
+        let separatorView = UIView()
+        self.view.addSubview(separatorView)
+        
+        separatorView.backgroundColor = .lightGray
+        separatorView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            separatorView.topAnchor.constraint(equalTo: viewController.view.bottomAnchor),
+            separatorView.leftAnchor.constraint(equalTo: viewController.view.leftAnchor, constant: 12),
+            separatorView.rightAnchor.constraint(equalTo: viewController.view.rightAnchor, constant: -12),
+            separatorView.heightAnchor.constraint(equalToConstant: 1)
             ])
     }
 }

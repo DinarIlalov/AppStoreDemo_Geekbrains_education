@@ -20,21 +20,14 @@ final class AppDetailHeaderViewController: UIViewController {
         return imageView
     }()
     
-    private(set) lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .black
-        label.font = UIFont.boldSystemFont(ofSize: 20.0)
+    private(set) lazy var titleLabel: TitleLabel = {
+        let label = TitleLabel()
         label.numberOfLines = 2
         return label
     }()
     
-    private(set) lazy var subtitleLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .lightGray
-        label.font = UIFont.systemFont(ofSize: 14.0)
-        return label
+    private(set) lazy var subtitleLabel: SubtitleLabel = {
+        return SubtitleLabel()
     }()
     
     private(set) lazy var openButton: UIButton = {
