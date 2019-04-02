@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B1C6C942252463400D99920 /* SongPlayerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1C6C932252463400D99920 /* SongPlayerBuilder.swift */; };
+		6B1C6C962252469B00D99920 /* SongPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1C6C952252469B00D99920 /* SongPlayerViewController.swift */; };
+		6B1C6C98225248B500D99920 /* SongPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1C6C97225248B500D99920 /* SongPlayerViewModel.swift */; };
+		6B1C6C9B22533D7400D99920 /* Observerable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1C6C9A22533D7400D99920 /* Observerable.swift */; };
+		6B1C6C9D2253470D00D99920 /* Date+DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1C6C9C2253470D00D99920 /* Date+DateFormatter.swift */; };
+		6B1C6CA0225348AE00D99920 /* SongPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1C6C9F225348AE00D99920 /* SongPlayer.swift */; };
 		6B89677B224E3BB600857898 /* SongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B89677A224E3BB600857898 /* SongTableViewCell.swift */; };
 		6B89677E224E4D5100857898 /* AppDetailScreenshotsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B89677D224E4D5100857898 /* AppDetailScreenshotsViewController.swift */; };
 		6B9095A3224DEFAB0081DF52 /* AppDetailVersionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9095A2224DEFAB0081DF52 /* AppDetailVersionViewController.swift */; };
@@ -41,6 +47,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6B1C6C932252463400D99920 /* SongPlayerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongPlayerBuilder.swift; sourceTree = "<group>"; };
+		6B1C6C952252469B00D99920 /* SongPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongPlayerViewController.swift; sourceTree = "<group>"; };
+		6B1C6C97225248B500D99920 /* SongPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongPlayerViewModel.swift; sourceTree = "<group>"; };
+		6B1C6C9A22533D7400D99920 /* Observerable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observerable.swift; sourceTree = "<group>"; };
+		6B1C6C9C2253470D00D99920 /* Date+DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+DateFormatter.swift"; sourceTree = "<group>"; };
+		6B1C6C9F225348AE00D99920 /* SongPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongPlayer.swift; sourceTree = "<group>"; };
 		6B89677A224E3BB600857898 /* SongTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTableViewCell.swift; sourceTree = "<group>"; };
 		6B89677D224E4D5100857898 /* AppDetailScreenshotsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailScreenshotsViewController.swift; sourceTree = "<group>"; };
 		6B9095A2224DEFAB0081DF52 /* AppDetailVersionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailVersionViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +109,56 @@
 				A067E149D296BC0C249FD11F /* Pods-iOSArchitecturesDemo.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		6B1C6C8F2252456B00D99920 /* SongPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				6B1C6C922252461000D99920 /* ViewModel */,
+				6B1C6C912252460900D99920 /* View */,
+				6B1C6C902252460300D99920 /* Builder */,
+			);
+			path = SongPlayer;
+			sourceTree = "<group>";
+		};
+		6B1C6C902252460300D99920 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				6B1C6C932252463400D99920 /* SongPlayerBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		6B1C6C912252460900D99920 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6B1C6C952252469B00D99920 /* SongPlayerViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6B1C6C922252461000D99920 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6B1C6C97225248B500D99920 /* SongPlayerViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6B1C6C9922533D5A00D99920 /* Observable */ = {
+			isa = PBXGroup;
+			children = (
+				6B1C6C9A22533D7400D99920 /* Observerable.swift */,
+			);
+			path = Observable;
+			sourceTree = "<group>";
+		};
+		6B1C6C9E2253489D00D99920 /* SongPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				6B1C6C9F225348AE00D99920 /* SongPlayer.swift */,
+			);
+			path = SongPlayer;
 			sourceTree = "<group>";
 		};
 		6B89677C224E4D0E00857898 /* AppDetailScreenshotsSubmodule */ = {
@@ -211,6 +273,7 @@
 		E0E1D2A52034A3560011E01A /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				6B1C6C8F2252456B00D99920 /* SongPlayer */,
 				6B9095AE224E1E310081DF52 /* SongsSearch */,
 				E0E1D2A62034A36C0011E01A /* Search */,
 				E0E1D2A72034A3780011E01A /* AppDetail */,
@@ -295,6 +358,7 @@
 			children = (
 				E0E1D3D3203C4AA50011E01A /* UIColor+Extensions.swift */,
 				6B9095AC224DFCCB0081DF52 /* UIViewController.swift */,
+				6B1C6C9C2253470D00D99920 /* Date+DateFormatter.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -302,6 +366,7 @@
 		F8A1E03D224850CA00FE6448 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				6B1C6C9922533D5A00D99920 /* Observable */,
 				E0E1D2ED2035AA980011E01A /* AppDelegate */,
 				F8A1E03E224850E500FE6448 /* Monads */,
 				E0E1D359203ADCE10011E01A /* NetworkManager */,
@@ -320,6 +385,7 @@
 		F8A1E0402248511B00FE6448 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				6B1C6C9E2253489D00D99920 /* SongPlayer */,
 				E0E1D385203AE3E00011E01A /* AppStartManager */,
 				E0E1D393203AE5AA0011E01A /* iTunesSearchService */,
 				E0E1D39D203AE7230011E01A /* ImageDownloader */,
@@ -505,6 +571,7 @@
 				6B9095B0224E1E810081DF52 /* SongsSearchViewController.swift in Sources */,
 				6B9095A3224DEFAB0081DF52 /* AppDetailVersionViewController.swift in Sources */,
 				6B9095B5224E211E0081DF52 /* SongsSearchPresenter.swift in Sources */,
+				6B1C6C98225248B500D99920 /* SongPlayerViewModel.swift in Sources */,
 				F8A97B352249898E00FB2C0E /* AppCell.swift in Sources */,
 				F8BAEF03224BF66A00E7F853 /* AppDetailHeaderViewController.swift in Sources */,
 				E0E1D387203AE45F0011E01A /* WebRequest.swift in Sources */,
@@ -518,18 +585,23 @@
 				E0E1D39C203AE6420011E01A /* ITunesSong.swift in Sources */,
 				E0E1D2952034A3350011E01A /* SearchViewController.swift in Sources */,
 				6B9095A6224DF0620081DF52 /* TitleLabel.swift in Sources */,
+				6B1C6CA0225348AE00D99920 /* SongPlayer.swift in Sources */,
 				E0E1D39F203AE7400011E01A /* ImageDownloader.swift in Sources */,
 				E0E1D395203AE5E20011E01A /* ITunesSearchResult.swift in Sources */,
 				6B9095A8224DF1780081DF52 /* SubtitleLabel.swift in Sources */,
 				6B9095B8224E21A30081DF52 /* SongsSearchBuilder.swift in Sources */,
 				E0E1D392203AE58B0011E01A /* ITunesSearchService.swift in Sources */,
+				6B1C6C9D2253470D00D99920 /* Date+DateFormatter.swift in Sources */,
 				6B9095AA224DF2FB0081DF52 /* SimpleLabel.swift in Sources */,
+				6B1C6C942252463400D99920 /* SongPlayerBuilder.swift in Sources */,
 				6B89677E224E4D5100857898 /* AppDetailScreenshotsViewController.swift in Sources */,
 				6B9095BA224E21F70081DF52 /* SongsSearchModel.swift in Sources */,
 				6B89677B224E3BB600857898 /* SongTableViewCell.swift in Sources */,
 				E0E1D2932034A3350011E01A /* AppDelegate.swift in Sources */,
+				6B1C6C962252469B00D99920 /* SongPlayerViewController.swift in Sources */,
 				F8BAEF06224BFF0F00E7F853 /* SearchPresenter.swift in Sources */,
 				E0E1D384203AE3620011E01A /* AppStartManager.swift in Sources */,
+				6B1C6C9B22533D7400D99920 /* Observerable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
