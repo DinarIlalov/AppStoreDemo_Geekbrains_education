@@ -9,7 +9,7 @@
 import UIKit
 
 final class SongPlayerBuilder {
-    func build(with song: ITunesSong) -> UIViewController {
+    static func build(with song: ITunesSong) -> UIViewController {
         let songPlayer = SongPlayer(song: song)
         let viewModel = SongPlayerViewModel(with: song, songPlayer: songPlayer)
         let viewController = SongPlayerViewController(viewModel: viewModel)

@@ -39,7 +39,7 @@ class SongsSearchPresenter {
     func viewDidSelectCell(at indexPath: IndexPath) {
         let song = model.dataSource[indexPath.row]
         print("song selected \(song.trackName)")
-        let songDetailsViewController = SongPlayerBuilder().build(with: song)
+        let songDetailsViewController = SongPlayerBuilder.build(with: song)
         self.viewController?.navigationController?.pushViewController(songDetailsViewController, animated: true)
     }
 
